@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en_us">
+<head>
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+    <title>CSS3 Transition Example</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="control">
+            <label for="chessman-x">X:</label>
+            <input type="number" max="8" min="1" id="chessman-x" value="1">
+
+            <label for="chessman-y">Y:</label>
+            <input type="number" max="8" min="1" id="chessman-y" value="1">
+
+            <button id="move">Move</button>
+            <button id="move-randomly">Move Randomly</button>
+        </div>
+
+        <div id="board">
+            <div id="board-grids"></div>
+        </div>
+    </div>
+</body>
+</html>

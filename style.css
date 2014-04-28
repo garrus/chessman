@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: silver;
+}
+
+#container {
+    width: 800px;
+    min-height: 800px;
+    display: block;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+}
+
+#board {
+    border: 4px double green;
+    width: 640px;
+    height: 640px;
+    margin: 0 auto;
+    background: saddlebrown;
+    border-radius: 15px;
+    position: relative;
+}
+#board-grids>div {
+    float: left;
+    width: 78px;
+    height: 78px;
+    border: 1px solid white;
+}
+#board-grids>div:first-child{
+    border-top-left-radius: 15px;
+}
+#board-grids>div:last-child{
+    border-bottom-right-radius: 15px;
+}
+#board-grids>div:nth-child(8){
+    border-top-right-radius: 15px;
+}
+#board-grids>div:nth-last-child(8){
+    border-bottom-left-radius: 15px;
+}
+#control {
+    margin-bottom: 10px;
+}
+
+.chessman {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 6px double lightskyblue;
+    background-color: black;
+    box-shadow: 0 0 4px 1px white;
+    border-radius: 50px;
+
+    /* Translation to make the chessman in the center of each grid */
+    -webkit-transform: translate(-16px, -16px);
+    -moz-transform: translate(-16px, -16px);
+    -ms-transform: translate(-16px, -16px);
+    -o-transform: translate(-16px, -16px);
+    transform: translate(-16px, -16px);
+
+    /* Init position */
+    top: 40px;
+    left: 40px;
+
+    /* Transition */
+    -webkit-transition: top 600ms ease,left 600ms ease;
+    -moz-transition: top 600ms ease,left 600ms ease;
+    -ms-transition: top 600ms ease,left 600ms ease;
+    -o-transition: top 600ms ease,left 600ms ease;
+    transition: top 600ms ease,left 600ms ease;
+
+
+
+}
