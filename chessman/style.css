@@ -5,13 +5,8 @@ body {
     background-color: silver;
 }
 
-#container {
-    width: 800px;
-    min-height: 800px;
-    display: block;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: white;
+.container {
+    -webkit-perspective: 600;
 }
 
 #board {
@@ -22,6 +17,10 @@ body {
     background: saddlebrown;
     border-radius: 15px;
     position: relative;
+
+    transform: rotateX(45deg);
+    -webkit-transform: rotateX(45deg);
+    -moz-transform: rotateX(30deg);
 }
 #board-grids>div {
     float: left;
@@ -42,6 +41,7 @@ body {
     border-bottom-left-radius: 15px;
 }
 #control {
+    margin-top: 30px;
     margin-bottom: 10px;
 }
 
@@ -49,10 +49,12 @@ body {
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 6px double lightskyblue;
+    /*border: 6px double lightskyblue;*/
     background-color: black;
-    box-shadow: 0 0 4px 1px white;
+    box-shadow: 3px 3px 5px 1px black;
     border-radius: 50px;
+
+    background: -webkit-radial-gradient(closest-side, black 70%, yellow 30%);
 
     /* Translation to make the chessman in the center of each grid */
     -webkit-transform: translate(-16px, -16px);
@@ -72,6 +74,33 @@ body {
     -o-transition: top 600ms ease,left 600ms ease;
     transition: top 600ms ease,left 600ms ease;
 
-
-
 }
+
+.chessman.picked-up{
+    animation: pickup 600ms ease 1 normal;
+    -moz-animation: pickup 600ms ease 1 normal;
+    -webkit-animation: pickup 600ms ease 1 normal;
+    -o-animation: pickup 600ms ease 1 normal;
+}
+
+@keyframes pickup{
+    0% {box-shadow: 3px 3px 5px 1px black;}
+    50% {box-shadow: 75px 75px 5px 15px rgba(0,0,0,0.05);-webkit-transform: scale(2,2);}
+    100% {box-shadow: 3px 3px 5px 1px black;}
+}
+@-moz-keyframes pickup{
+    0% {box-shadow: 3px 3px 5px 1px black;}
+    50% {box-shadow: 100px 100px 5px 15px rgba(0,0,0,0.05);}
+    100% {box-shadow: 3px 3px 5px 1px black;}
+}
+@-webkit-keyframes pickup{
+    0% {box-shadow: 3px 3px 5px 1px black;}
+    50% {box-shadow: 50px 50px 5px 5px rgba(0,0,0,0.3);-webkit-transform: scale(1.5,1.5);}
+    100% {box-shadow: 3px 3px 5px 1px black;}
+}
+@-o-keyframes pickup{
+    0% {box-shadow: 3px 3px 5px 1px black;}
+    50% {box-shadow: 100px 100px 5px 15px rgba(0,0,0,0.05);}
+    100% {box-shadow: 3px 3px 5px 1px black;}
+}
+

@@ -13,12 +13,7 @@ $(function(){
     });
 
     $("#move-randomly").click(function(){
-        $(".chessman").each(function(){
-            var pos = getRandomPosition(X_RANGE, Y_RANGE);
-            moveTo(pos, $(this));
-//            $("#chessman-x").val(pos.x);
-//            $("#chessman-y").val(pos.y);
-        })
+        moveRandomly();
     });
 
     function getStyleByPosition(pos){
@@ -35,16 +30,28 @@ $(function(){
         };
     }
 
+    function moveRandomly(){
+        $(".chessman").each(function(){
+            var pos = getRandomPosition(X_RANGE, Y_RANGE);
+            moveTo(pos, $(this));
+        });
+    }
+
     function moveTo(pos, $chessman){
         $chessman = $chessman || $(".chessman");
         $chessman.css(getStyleByPosition(pos));
         $chessman.data("pos-x", pos.x);
         $chessman.data("pos-y", pos.y);
+        $chessman.toggleClass("picked-up", true);
+        setTimeout(function(){
+            $chessman.toggleClass("picked-up", false);
+        }, 600);
     }
 
     function init(){
         initBoardGrids();
         initChessmans();
+        setInterval(moveRandomly, 750);
     }
 
     function initBoardGrids(){
